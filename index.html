@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type = "text/css" href = "style.css">
+<title>Home</title>
+<!--style--> 
+<style>
+*{
+margin 0;
+padding 0;
+}
+
+body {
+background: black;
+color: white;
+font-family: 'arial black';
+}
+
+.top_menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+.top-menu {
+  background:rebeccapurple ;
+  opacity: 50;
+  
+  padding: 20px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar-logo {display: inline-block;}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  line-height: 61px;
+  padding-left: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Impact', sans-serif;
+  color: white;
+   shadow: 5px 0 7px white
+  transition:.3s linear;
+}
+.menu-main a:before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #F73E24;
+  position: absolute;
+  left: 50%;
+  transform: rotate(45deg) translateX(6.5px);
+  opacity: 0;
+  transition: .3s linear;
+}
+.menu-main a:hover:before {opacity: 1;}
+/* Скрыть подменю по умолчанию */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: rebeccapurple;
+  box-shadow: rebeccapurple;
+  z-index: 1;
+}
+/* Показать подменю при наведении на ссылку */
+.menu-main li:hover .submenu {
+  display: block;
+}
+.submenu li {
+  float: none;
+}
+.submenu a {
+  padding: 10px 20px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 660px) {
+.menu-main {
+  float: none;
+  padding-top: 20px;
+}
+.top-menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.menu-main a {padding: 0 10px;}
+.menu-main a:before {transform: rotate(45deg) translateX(-6px);}
+}
+@media (max-width: 600px) {
+.menu-main li {display: block;}
+}
+
+.div {
+    display: block;
+}
+.container {
+    text-align: center;
+}
+.container {
+    text-align: left;
+}
+
+    .carousel-container {
+      position: relative;
+      width: 1240px; /* Adjust as needed */
+      height: 800px;
+      margin: 50px auto;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out; /* Smooth transition for slide */
+    }
+
+    .carousel-slide {
+      width: 1240px; /* Same as carousel-container */
+      height: 800px; /* Adjust as needed */
+    }
+
+    .carousel-slide img {
+height: 800px;
+width:1240px; /* Same as carousel-container */
+  
+    }
+
+    .carousel-nav {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    }
+
+    .carousel-nav button {
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      color: white;
+      border: none;
+      position: center
+      padding: 10px 15px;
+      border-radius: 50%;
+      margin: 0 10px;
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+    }
+
+    .carousel-nav button:hover {
+      background-color: rgba(0, 0, 0, 0.7); /* Darker on hover */
+    }
+
+   
+    .language-selector {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .language-button.active {
+      background-color: rebeccapurple;
+      color: white;
+    }
+
+    .container2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      width: 400px;
+      height: 600px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: rebeccapurple;
+      position: relative; 
+    }
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.card:active {
+  transform: translateY(-5px);
+}
+
+    .card img {
+      width: 400px;
+      height: 600px;
+      object-fit: cover;
+       overflow: hidden;
+    }
+
+    .card-content {
+      position: absolute; 
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5); 
+      color: white; 
+      text-align: center;
+    }
+
+    .card-title {
+      margin-bottom: 5px;
+      font-size: 3em;
+      font-family: 'Impact', sans-serif;
+    }
+
+    .card-description { 
+      font-size: 1.2em; 
+      font-family: 'Impact', sans-serif;
+    }
+
+    footer {
+    	position: absolute;
+      left: 135px;
+      font-family: 'arial black', sans-serif;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- Site navigation menu -->
+
+<nav class="top-menu">
+  <a class="navbar-logo" href=""><img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png"></a>
+  <ul class="menu-main">
+ <li><a href="index.html"> Home</a>
+ <li><a href="trainers.html">Trainers</a>
+ <li><a href="blog.html">Blog</a>
+ <ul class="submenu">
+       <li><a href="Questions.html">Questions</a></li>
+     <li><a href="Our story.html">Our story</a></li>
+   </ul>
+ <li><a href="Adresses.html">Adresses</a>
+    <li><a href="Workouts.html">Workouts</a>
+<ul class="submenu">
+     <li><a href="Group workouts.html">Group</a></li>
+     <li><a href="Pool workouts.html">Pool</a></li>
+   </ul>
+</ul>
+</nav>
+
+<!--carousel-->
+<div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide1" id="Slide 1">
+        <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\главная1.jpg" alt="Slide 1"></div>
+      <div class="carousel-slide2" id="Slide 2">
+        <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\главная2.jpg" alt="Slide 2">
+      </div>
+      <div class="carousel-slide3" id="Slide 3">
+        <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Главная3.jpg" alt="Slide 3">
+      </div>
+      <div class="carousel-slide4" id="Slide 4">
+        <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Главная4.jpg" alt="Slide 4">
+      </div>
+      <div class="carousel-slid5" id="Slide 5">
+        <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Главная5.jpg" alt="Slide 5">
+      </div>
+
+    </div>
+    <div class="carousel-nav">
+      <button id="prevBtn">&#10094;</button>
+      <button id="nextBtn">&#10095;</button>
+    </div>
+  </div>
+
+  <script>
+    const carouselTrack = document.getElementById("carouselTrack");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let slideWidth = 1680; // Same as carousel-container width
+    let currentSlide = 0;
+
+    function moveToSlide(index) {
+      carouselTrack.style.transform = `translateX(-${index * slideWidth}px)`;
+      currentSlide = index;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      moveToSlide((currentSlide - 1 + carouselTrack.children.length) % carouselTrack.children.length);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      moveToSlide((currentSlide + 1) % carouselTrack.children.length);
+    });
+  </script>
+
+<div class="language-selector">
+    <button class="language-button active" data-lang="en">English</button>
+    <button class="language-button" data-lang="ru">Русский</button>
+  </div>
+
+  <script>
+    const languageButtons = document.querySelectorAll('.language-button');
+    const htmlElement = document.querySelector('html');
+
+    languageButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Удаляем класс 'active' у всех кнопок
+        languageButtons.forEach(b => b.classList.remove('active'));
+
+        // Добавляем класс 'active' к нажатой кнопке
+        button.classList.add('active');
+
+        // Изменяем атрибут 'lang' у элемента 'html'
+        htmlElement.lang = button.dataset.lang;
+
+        // Добавьте сюда логику обновления контента страницы
+        // Например:
+        // updateContent(button.dataset.lang);
+      });
+    });
+
+    // Функция обновления контента (придумайте свою логику)
+    function updateContent(language) {
+      // ...
+    }
+  </script>
+<div class="container2">
+    <div class="card" onclick="location.href='Adresses.html'">
+      <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Астаназал.jpg" alt="Фото 1">
+      <div class="card-content">
+        <h3 class="card-title">Astana</h3>
+         <p class="card-description">Mangilik El 50</p>
+      </div>
+    </div>
+   <div class="card" onclick="location.href='Adresses.html'">
+      <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Алматызал.jpg" alt="Фото 2">
+      <div class="card-content">
+        <h3 class="card-title">Almaty</h3>
+         <p class="card-description">Samal 1</p>
+      </div>
+    </div>
+   <div class="card" onclick="location.href='Adresses.html'">
+      <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Актобезал.jpg" alt="Фото 3">
+      <div class="card-content">
+        <h3 class="card-title">Aqtobe</h3>
+         <p class="card-description">Ryskulova 25</p>
+      </div>
+    </div>
+    <div class="card" onclick="location.href='Adresses.html'">
+      <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Шымкентзал.jpg" alt="Фото 4">
+      <div class="card-content">
+        <h3 class="card-title">Shymkent</h3>
+        <p class="card-description">Mailina 33</p>
+      </div>
+    </div>
+    <div class="card" onclick="location.href='Adresses.html'">
+      <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Атыраузал.jpg" alt="Фото 5">
+      <div class="card-content">
+        <h3 class="card-title">Atyrau</h3>
+        <p class="card-description">Petrova 12</p>
+      </div>
+    </div>
+   <div class="card" onclick="location.href='Adresses.html'">
+      <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Семейзал.jpg" alt="Фото 6">
+      <div class="card-content">
+        <h3 class="card-title">Semey</h3>
+         <p class="card-description">Seifulina 52</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+  	 <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png">
+  <p>Become stronger with us!</p>
+    <p>Social Media</p>
+    <p>Instagram: @Aisport_kz</p>
+    <p>VK: Aisport_kz group</p>
+  </footer>
+
+</body>
+</html>

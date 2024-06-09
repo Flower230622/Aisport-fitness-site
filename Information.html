@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type = "text/css" href = "style.css">
+<title>Information</title>
+
+<!--style--> 
+<style>
+	*{
+margin 0;
+padding 0;
+}
+
+body {
+background: black;
+color: white;
+}
+
+.top_menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+.top-menu {
+  background:rebeccapurple ;
+  opacity: 50;
+  
+  padding: 20px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar-logo {display: inline-block;}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  line-height: 61px;
+  padding-left: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Impact', sans-serif;
+  color: white;
+   shadow: 5px 0 7px white
+  transition:.3s linear;
+}
+.menu-main a:before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #F73E24;
+  position: absolute;
+  left: 50%;
+  transform: rotate(45deg) translateX(6.5px);
+  opacity: 0;
+  transition: .3s linear;
+}
+.menu-main a:hover:before {opacity: 1;}
+/* Скрыть подменю по умолчанию */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: rebeccapurple;
+  box-shadow: rebeccapurple;
+  z-index: 1;
+}
+/* Показать подменю при наведении на ссылку */
+.menu-main li:hover .submenu {
+  display: block;
+}
+.submenu li {
+  float: none;
+}
+.submenu a {
+  padding: 10px 20px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 660px) {
+.menu-main {
+  float: none;
+  padding-top: 20px;
+}
+.top-menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.menu-main a {padding: 0 10px;}
+.menu-main a:before {transform: rotate(45deg) translateX(-6px);}
+}
+@media (max-width: 600px) {
+.menu-main li {display: block;}
+}
+</style>
+
+<body>
+<!-- Site navigation menu -->
+
+<nav class="top-menu">
+  <a class="navbar-logo" href=""><img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png"></a>
+  <ul class="menu-main">
+ <li><a href="index.html"> Home</a>
+ <li><a href="trainers.html">Trainers</a>
+ <li><a href="blog.html">Blog</a>
+ <ul class="submenu">
+       <li><a href="Questions.html">Questions</a></li>
+     <li><a href="Our story.html">Our story</a></li>
+   </ul>
+ <li><a href="Adresses.html">Adresses</a>
+    <li><a href="Workouts.html">Workouts</a>
+<ul class="submenu">
+     <li><a href="Group workouts.html">Group</a></li>
+     <li><a href="Pool workouts.html">Pool</a></li>
+   </ul>
+</ul>
+</nav>
+
+<article>
+  <h1>AISPORT</h1>
+  <p>Становись сильнее вместе с нами!</p>
+  <footer>
+    <p>Контакты:</p>
+    <p>Instagram: @Aisport_kz</p>
+    <p>VK: Aisport_kz group</p>
+  </footer>
+</article>
+
+
+</body>
+</html>

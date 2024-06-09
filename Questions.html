@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type = "text/css" href = "style.css">
+<title>Questions</title>
+
+<!--style--> 
+<style>
+*{
+margin 0;
+padding 0;
+}
+
+body {
+background: black;
+color: white;
+font-family: 'arial black';
+}
+
+.top_menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+.top-menu {
+  background:rebeccapurple ;
+  opacity: 50;
+  
+  padding: 20px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar-logo {display: inline-block;}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  line-height: 61px;
+  padding-left: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Impact', sans-serif;
+  color: white;
+   shadow: 5px 0 7px white
+  transition:.3s linear;
+}
+.menu-main a:before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #F73E24;
+  position: absolute;
+  left: 50%;
+  transform: rotate(45deg) translateX(6.5px);
+  opacity: 0;
+  transition: .3s linear;
+}
+.menu-main a:hover:before {opacity: 1;}
+/* Скрыть подменю по умолчанию */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: rebeccapurple;
+  box-shadow: rebeccapurple;
+  z-index: 1;
+}
+/* Показать подменю при наведении на ссылку */
+.menu-main li:hover .submenu {
+  display: block;
+}
+.submenu li {
+  float: none;
+}
+.submenu a {
+  padding: 10px 20px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 660px) {
+.menu-main {
+  float: none;
+  padding-top: 20px;
+}
+.top-menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.menu-main a {padding: 0 10px;}
+.menu-main a:before {transform: rotate(45deg) translateX(-6px);}
+}
+@media (max-width: 600px) {
+.menu-main li {display: block;}
+}
+
+
+
+.language-selector {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .language-button.active {
+      background-color: rebeccapurple;
+      color: white;
+    }
+
+   
+
+    footer {
+      position: absolute;
+      left: 135px;
+      font-family: 'arial black', sans-serif;
+    }
+
+.question-container {
+      width: 1200px;
+      height: 100px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: rebeccapurple;
+      position: relative;
+      left: 120px;
+      border: 1px solid darkred;
+      cursor: pointer;
+      position: relative;
+      display: grid; /* Превращаем контейнер в grid-контейнер */
+  place-items: center; /* Выравниваем текст по центру по горизонтали и вертикали */
+}
+
+    .question {
+    font-size: 1.5em;
+            font-family: 'impact', sans-serif;
+
+    }
+
+    .answer {
+      display: none;
+      padding: 10px;
+            font-family: 'arial black', sans-serif;
+    }
+
+    .question-container.active .question {
+      display: none; /* Скрываем вопрос */
+    }
+
+    .question-container.active .answer {
+      display: block; /* Показываем ответ */
+    }
+
+.form-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 1000xp;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 1000px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  width: 1000px;
+}
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.modal-content {
+  background-color: #darkred;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; 
+  max-width: 400px; 
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- Site navigation menu -->
+
+<nav class="top-menu">
+  <a class="navbar-logo" href=""><img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png"></a>
+  <ul class="menu-main">
+ <li><a href="index.html"> Home</a>
+ <li><a href="trainers.html">Trainers</a>
+ <li><a href="blog.html">Blog</a>
+ <ul class="submenu">
+       <li><a href="Questions.html">Questions</a></li>
+     <li><a href="Our story.html">Our story</a></li>
+   </ul>
+ <li><a href="Adresses.html">Adresses</a>
+    <li><a href="Workouts.html">Workouts</a>
+<ul class="submenu">
+     <li><a href="Group workouts.html">Group</a></li>
+     <li><a href="Pool workouts.html">Pool</a></li>
+   </ul>
+</ul>
+</nav>
+
+<div class="language-selector">
+    <button class="language-button active" data-lang="en">English</button>
+    <button class="language-button" data-lang="ru">Русский</button>
+  </div>
+
+  <script>
+    const languageButtons = document.querySelectorAll('.language-button');
+    const htmlElement = document.querySelector('html');
+
+    languageButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Удаляем класс 'active' у всех кнопок
+        languageButtons.forEach(b => b.classList.remove('active'));
+
+        // Добавляем класс 'active' к нажатой кнопке
+        button.classList.add('active');
+
+        // Изменяем атрибут 'lang' у элемента 'html'
+        htmlElement.lang = button.dataset.lang;
+
+        // Добавьте сюда логику обновления контента страницы
+        // Например:
+        // updateContent(button.dataset.lang);
+      });
+    });
+
+    // Функция обновления контента (придумайте свою логику)
+    function updateContent(language) {
+      // ...
+    }
+  </script>
+  
+  <div class="question-container">
+    <div class="question">How often should I work out?</div>
+    <div class="answer">
+      Aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week.
+    </div>
+  </div>
+
+  <div class="question-container">
+    <div class="question">What are the best exercises for weight loss?</div>
+    <div class="answer">
+       Any exercise that gets your heart rate up and makes you sweat can help you lose weight. Include cardio, strength training, and HIIT exercises in your routine.
+    </div>
+  </div>
+
+    <div class="question-container">
+    <div class="question">How much protein should I eat after a workout?</div>
+    <div class="answer">
+      Aim for 0.8 grams of protein per kilogram of body weight per day. After a workout, you can consume 20-30 grams of protein to help your muscles recover.
+    </div>
+  </div>
+  <div class="question-container">
+    <div class="question">How can I stay motivated to work out?</div>
+    <div class="answer">
+      Find an activity you enjoy, set realistic goals, and track your progress. Work out with a friend or join a fitness class for extra motivation.
+    </div>
+  </div>
+  <div class="question-container">
+    <div class="question">What should I do if I’m injured?</div>
+    <div class="answer">
+      Rest the injured area, ice it, compress it, and elevate it (RICE). Consult a doctor or physical therapist for further guidance.
+    </div>
+  </div>
+  <div class="question-container">
+    <div class="question">What are some healthy snacks for before or after a workout?</div>
+    <div class="answer">Choose snacks that are high in protein and carbohydrates, such as a banana with peanut butter, a protein bar, or a Greek yogurt with berries</div>
+  </div>
+
+  <script>
+    const questionContainers = document.querySelectorAll('.question-container');
+
+    questionContainers.forEach(container => {
+      container.addEventListener('click', () => {
+        container.classList.toggle('active');
+      });
+    });
+  </script>
+
+<div class="form-container2">
+
+  <form id="myForm">
+    <h1>Send message</h1>
+    <input type="text" placeholder="Your name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your questions" rows="4"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>We will answer to your email soon!</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("myBtn");
+  var span = document.getElementsByClassName("close")[0];
+
+  // Открыть всплывающее окно
+  document.getElementById('myForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Предотвратить отправку формы
+    modal.style.display = "block";
+
+
+  // Закрыть всплывающее окно при клике на "×"
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Закрыть всплывающее окно при клике вне области окна
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
+<footer>
+     <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png">
+  <p>Become stronger with us!</p>
+    <p>Social Media</p>
+    <p>Instagram: @Aisport_kz</p>
+    <p>VK: Aisport_kz group</p>
+  </footer>
+
+</body>
+</html>

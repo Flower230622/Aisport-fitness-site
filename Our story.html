@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type = "text/css" href = "style.css">
+<title>Our story</title>
+
+<style>
+*{
+margin 0;
+padding 0;
+}
+
+body {
+background: black;
+color: white;
+}
+
+.top_menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+.top-menu {
+  background:rebeccapurple ;
+  opacity: 50;
+  
+  padding: 20px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar-logo {display: inline-block;}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  line-height: 61px;
+  padding-left: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Impact', sans-serif;
+  color: white;
+   shadow: 5px 0 7px white
+  transition:.3s linear;
+}
+.menu-main a:before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #F73E24;
+  position: absolute;
+  left: 50%;
+  transform: rotate(45deg) translateX(6.5px);
+  opacity: 0;
+  transition: .3s linear;
+}
+.menu-main a:hover:before {opacity: 1;}
+/* Скрыть подменю по умолчанию */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: rebeccapurple;
+  box-shadow: rebeccapurple;
+  z-index: 1;
+}
+/* Показать подменю при наведении на ссылку */
+.menu-main li:hover .submenu {
+  display: block;
+}
+.submenu li {
+  float: none;
+}
+.submenu a {
+  padding: 10px 20px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 660px) {
+.menu-main {
+  float: none;
+  padding-top: 20px;
+}
+.top-menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.menu-main a {padding: 0 10px;}
+.menu-main a:before {transform: rotate(45deg) translateX(-6px);}
+}
+@media (max-width: 600px) {
+.menu-main li {display: block;}
+}
+
+.div {
+    display: block;
+}
+.container {
+    text-align: center;
+}
+.container {
+    text-align: left;
+}
+
+
+.language-selector {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .language-button.active {
+      background-color: rebeccapurple;
+      color: white;
+    }
+
+    .container2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      width: 400px;
+      height: 600px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: rebeccapurple;
+      position: relative; 
+    }
+
+    .card img {
+      width: 400px;
+      height: 600px;
+      object-fit: cover;
+       overflow: hidden;
+    }
+
+    .card-content {
+      position: absolute; 
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5); 
+      color: white; 
+      text-align: center;
+    }
+
+    .card-title {
+      margin-bottom: 5px;
+      font-size: 3em;
+      font-family: 'Impact', sans-serif;
+    }
+
+    .card-description { 
+      font-size: 1.2em; 
+      font-family: 'Impact', sans-serif;
+    }
+
+    h1 {
+font-family: 'arial black', sans-serif;
+text-align: center;
+
+    }
+
+    footer {
+      position: absolute;
+      left: 135px;
+      font-family: 'arial black', sans-serif;
+    }
+
+.container {
+  font-family: 'arial black', sans-serif;
+  display: flex;
+  justify-content: center; 
+   left: 135px;
+}
+
+.column {
+  width: 600px; 
+  margin-right: 20px; 
+}
+
+.column.right {
+  width: auto; /* Правая колонка занимает оставшееся пространство */
+  width: 600px; 
+}
+</style>
+</head>
+
+<body>
+
+<!-- Site navigation menu -->
+
+<nav class="top-menu">
+  <a class="navbar-logo" href=""><img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png"></a>
+  <ul class="menu-main">
+ <li><a href="index.html"> Home</a>
+ <li><a href="trainers.html">Trainers</a>
+ <li><a href="blog.html">Blog</a>
+ <ul class="submenu">
+       <li><a href="Questions.html">Questions</a></li>
+     <li><a href="Our story.html">Our story</a></li>
+   </ul>
+ <li><a href="Adresses.html">Adresses</a>
+    <li><a href="Workouts.html">Workouts</a>
+<ul class="submenu">
+     <li><a href="Group workouts.html">Group</a></li>
+     <li><a href="Pool workouts.html">Pool</a></li>
+   </ul>
+</ul>
+</nav>
+
+<div class="language-selector">
+    <button class="language-button active" data-lang="en">English</button>
+    <button class="language-button" data-lang="ru">Русский</button>
+  </div>
+
+  <script>
+    const languageButtons = document.querySelectorAll('.language-button');
+    const htmlElement = document.querySelector('html');
+
+    languageButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Удаляем класс 'active' у всех кнопок
+        languageButtons.forEach(b => b.classList.remove('active'));
+
+        // Добавляем класс 'active' к нажатой кнопке
+        button.classList.add('active');
+
+        // Изменяем атрибут 'lang' у элемента 'html'
+        htmlElement.lang = button.dataset.lang;
+
+        // Добавьте сюда логику обновления контента страницы
+        // Например:
+        // updateContent(button.dataset.lang);
+      });
+    });
+
+    // Функция обновления контента (придумайте свою логику)
+    function updateContent(language) {
+      // ...
+    }
+
+  </script>
+
+ <h1>About us</h1> <br>
+
+<div class="container">
+  <div class="column">
+        <p>The year was 2006. <br> <br> Kazakhstan, a nation brimming with potential, was witnessing a growing focus on health and fitness. A young entrepreneur named Aizhan, a passionate athlete and fitness enthusiast, recognized this emerging trend. Having trained in the bustling fitness hubs of Europe, Aizhan returned to Kazakhstan with a vision – to create a world-class fitness experience that would empower and inspire her fellow Kazakhs. <br>
+<br> Driven by this vision, Aizhan pooled his savings and started working on his idea. She knew that a typical gym wouldn’t suffice. She wanted something unique, something that reflected the vibrant spirit of Kazakhstan and catered to the diverse needs of its people. <br> <br> Aisport’s commitment to excellence was recognized with awards, including “Best Fitness Club in Kazakhstan” in 2008 and “Most Innovative Fitness Program” in 2010. The club’s success went beyond numbers, however. Aisport became a community, a place where individuals found not only physical fitness but also a sense of belonging and support. </br>
+</p>
+  </div>
+  <div class="column right">
+   
+    <p> The name “Aisport” was born – a blend of “Ai” (meaning “moon” in Kazakh, symbolizing the bright future of the club) and “Sport,” representing the core of their mission.<br> <br> Aizhan scoured the city, searching for the perfect location for his first Aisport club. He found it in a bustling area near the city center, a place that promised convenience and accessibility. The club was designed with spacious workout areas, state-of-the-art equipment, and inviting social spaces. </br>
+<br>The club quickly gained a reputation for its quality and welcoming environment. People loved the energy, the focus on personal attention, and the commitment to helping everyone achieve their fitness goals. Aizhan’s dedication paid off, and Aisport began to grow.
+By the end of the year, Aizhan opened a second Aisport club in a different part of the city, expanding his vision to reach a wider audience. As the years passed, Aisport continued to grow, becoming synonymous with fitness and wellness in Kazakhstan.</br>
+<br>Today, Aisport stands as a symbol of the nation’s commitment to health and well-being. Aizhan’s unwavering commitment, along with his passion for fitness, built a legacy that continues to inspire generations of Kazakhs to live healthier, more fulfilling lives.</br>
+</p>
+  </div>
+</div>
+  <footer>
+     <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png">
+  <p>Become stronger with us!</p>
+    <p>Social Media</p>
+    <p>Instagram: @Aisport_kz</p>
+    <p>VK: Aisport_kz group</p>
+  </footer>
+
+</body>
+</html>

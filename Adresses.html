@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type = "text/css" href = "style.css">
+<title>Adresses</title>
+
+<style>
+*{
+margin 0;
+padding 0;
+}
+
+body {
+background: black;
+color: white;
+ font-family: 'arial black', sans-serif;
+
+}
+
+ .card {
+      width: 1250px;
+      height: 500px;
+      margin: 10px;
+      border: 1px solid rebeccapurple;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: rebeccapurple;
+      position: relative; 
+      left:120px;
+    }
+
+.card-content {
+  display: flex;
+  align-items: center; /* Выравнивание по вертикали */
+}
+
+.card-text {
+  width: 50%; /* Ширина текстовой колонки */
+  font-family: 'Arial black', sans-serif;
+  text-align: center;
+  font-size: 2em;
+ }
+
+.card-image {
+  width: 50%; /* Ширина колонки с изображением */
+}
+
+.card-image iframe {
+  width: 100%;
+  height: 500px;
+  border: 0;
+  top: 0;
+  left: 50%;
+ ;
+}
+
+
+.top_menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+.top-menu {
+  background:rebeccapurple ;
+  opacity: 50;
+  
+  padding: 20px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar-logo {display: inline-block;}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  line-height: 61px;
+  padding-left: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Impact', sans-serif;
+  color: white;
+   shadow: 5px 0 7px white
+  transition:.3s linear;
+}
+.menu-main a:before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #F73E24;
+  position: absolute;
+  left: 50%;
+  transform: rotate(45deg) translateX(6.5px);
+  opacity: 0;
+  transition: .3s linear;
+}
+.menu-main a:hover:before {opacity: 1;}
+/* Скрыть подменю по умолчанию */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: rebeccapurple;
+  box-shadow: rebeccapurple;
+  z-index: 1;
+}
+/* Показать подменю при наведении на ссылку */
+.menu-main li:hover .submenu {
+  display: block;
+}
+.submenu li {
+  float: none;
+}
+.submenu a {
+  padding: 10px 20px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 660px) {
+.menu-main {
+  float: none;
+  padding-top: 20px;
+}
+.top-menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.menu-main a {padding: 0 10px;}
+.menu-main a:before {transform: rotate(45deg) translateX(-6px);}
+}
+@media (max-width: 600px) {
+.menu-main li {display: block;}
+}
+
+
+
+    
+
+  
+
+  .div {
+    display: block;
+}
+.container {
+    text-align: center;
+}
+.container {
+    text-align: left;
+}
+
+
+.language-selector {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .language-button.active {
+      background-color: rebeccapurple;
+      color: white;
+    }
+    footer {
+      position: absolute;
+      left: 135px;
+      font-family: 'arial black', sans-serif;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- Site navigation menu -->
+
+<nav class="top-menu">
+  <a class="navbar-logo" href=""><img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png"></a>
+  <ul class="menu-main">
+ <li><a href="index.html"> Home</a>
+ <li><a href="trainers.html">Trainers</a>
+ <li><a href="blog.html">Blog</a>
+ <ul class="submenu">
+       <li><a href="Questions.html">Questions</a></li>
+     <li><a href="Our story.html">Our story</a></li>
+   </ul>
+ <li><a href="Adresses.html">Adresses</a>
+    <li><a href="Workouts.html">Workouts</a>
+<ul class="submenu">
+     <li><a href="Group workouts.html">Group</a></li>
+     <li><a href="Pool workouts.html">Pool</a></li>
+   </ul>
+</ul>
+</nav>
+
+<div class="language-selector">
+    <button class="language-button active" data-lang="en">English</button>
+    <button class="language-button" data-lang="ru">Русский</button>
+  </div>
+
+  <script>
+    const languageButtons = document.querySelectorAll('.language-button');
+    const htmlElement = document.querySelector('html');
+
+    languageButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Удаляем класс 'active' у всех кнопок
+        languageButtons.forEach(b => b.classList.remove('active'));
+
+        // Добавляем класс 'active' к нажатой кнопке
+        button.classList.add('active');
+
+        // Изменяем атрибут 'lang' у элемента 'html'
+        htmlElement.lang = button.dataset.lang;
+
+        // Добавьте сюда логику обновления контента страницы
+        // Например:
+        // updateContent(button.dataset.lang);
+      });
+    });
+
+    // Функция обновления контента (придумайте свою логику)
+    function updateContent(language) {
+      // ...
+    }
+  </script>
+
+<div class="card">
+  <div class="card-content">
+    <div class="card-text">
+      <h3>Astana</h3>
+      <p>Mangilik El 50</p>
+    </div>
+    <div class="card-image">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.746534760761!2d71.42575307648538!3d51.094685071722374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4245845065dadd8f%3A0x9863284768d224ed!2z0L_RgC3Rgi4g0JzQsNC90LPQuNC70LjQuiDQldC7LiA1MCwg0JDRgdGC0LDQvdCwIDAyMDAwMA!5e0!3m2!1sru!2skz!4v1717943065930!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-text">
+      <h3>Almaty</h3>
+      <p>Samal 1</p>
+    </div>
+    <div class="card-image">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.736313955849!2d76.95112822602721!3d43.23598787112501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836efc50c5d26f%3A0x46a423d173091eb7!2z0KHQsNC80LDQuy0xLCAwNTAwMDAg0JDQu9C80LDRgtGL!5e0!3m2!1sru!2skz!4v1717943130358!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-text">
+      <h3>Aqtobe</h3>
+      <p>Ryskulova 25</p>
+    </div>
+    <div class="card-image">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2547.6817091169523!2d57.12617867643746!3d50.31653167156687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x418222036a22d917%3A0x72be607a7edae290!2z0YPQuy4g0KDRi9GB0LrRg9C70L7QstCwIDI1LCDQkNC60YLQvtCx0LU!5e0!3m2!1sru!2skz!4v1717943229674!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-text">
+      <h3>Shymkent</h3>
+      <p>Mailina 33</p>
+    </div>
+    <div class="card-image">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.0311678968433!2d69.58505527597777!3d42.32053397119656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38a91d9caef40cdf%3A0x530cd07c75c0c181!2z0JzQsNC50LvRiyDQutC-0LbQsA!5e0!3m2!1sru!2skz!4v1717943326824!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-text">
+      <h3>Atyrau</h3>
+      <p>Petrova 12</p>
+    </div>
+    <div class="card-image">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d173831.67860693118!2d51.6244800455858!3d47.096718574699736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41a3ea26f5b2dd0d%3A0x3e4a125c0e268d2d!2z0JDRgtGL0YDQsNGD!5e0!3m2!1sru!2skz!4v1717943382957!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-text">
+      <h3>Semey</h3>
+      <p>Seifullina 52</p>
+    </div>
+    <div class="card-image">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2542.1839181324412!2d80.27411777644376!3d50.41904487158626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42f27ab7f1327141%3A0x6e9706e5177c5f89!2z0YPQu9C40YbQsCDQodC10LnRhNGD0LvQuNC90LAsIDA3MDAwMCDQodC10LzQtdC5!5e0!3m2!1sru!2skz!4v1717943456496!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+
+
+
+  <footer>
+     <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png">
+  <p>Become stronger with us!</p>
+    <p>Social Media</p>
+    <p>Instagram: @Aisport_kz</p>
+    <p>VK: Aisport_kz group</p>
+  </footer>
+
+</body>
+</html>

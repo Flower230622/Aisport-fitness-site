@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type = "text/css" href = "style.css">
+<title>workouts</title>
+
+<!--style--> 
+<style>
+*{
+margin 0;
+padding 0;
+}
+
+body {
+background: black;
+color: white;
+}
+
+.top_menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+.top-menu {
+  background:rebeccapurple ;
+  opacity: 50;
+  
+  padding: 20px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar-logo {display: inline-block;}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  line-height: 61px;
+  padding-left: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Impact', sans-serif;
+  color: white;
+   shadow: 5px 0 7px white
+  transition:.3s linear;
+}
+.menu-main a:before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #F73E24;
+  position: absolute;
+  left: 50%;
+  transform: rotate(45deg) translateX(6.5px);
+  opacity: 0;
+  transition: .3s linear;
+}
+.menu-main a:hover:before {opacity: 1;}
+/* Скрыть подменю по умолчанию */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: rebeccapurple;
+  box-shadow: rebeccapurple;
+  z-index: 1;
+}
+/* Показать подменю при наведении на ссылку */
+.menu-main li:hover .submenu {
+  display: block;
+}
+.submenu li {
+  float: none;
+}
+.submenu a {
+  padding: 10px 20px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 660px) {
+.menu-main {
+  float: none;
+  padding-top: 20px;
+}
+.top-menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.menu-main a {padding: 0 10px;}
+.menu-main a:before {transform: rotate(45deg) translateX(-6px);}
+}
+@media (max-width: 600px) {
+.menu-main li {display: block;}
+}
+
+
+
+.language-selector {
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .language-button.active {
+      background-color: rebeccapurple;
+      color: white;
+    }
+
+    .container2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      width: 400px;
+      height: 600px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: rebeccapurple;
+      position: relative; 
+    }
+
+    .card img {
+      width: 400px;
+      height: 600px;
+      object-fit: cover;
+       overflow: hidden;
+    }
+
+    .card-content {
+      position: absolute; 
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5); 
+      color: white; 
+      text-align: center;
+    }
+
+    .card-title {
+      margin-bottom: 5px;
+      font-size: 3em;
+      font-family: 'Impact', sans-serif;
+    }
+
+    .card-description { 
+      font-size: 1.2em; 
+      font-family: 'Impact', sans-serif;
+    }
+    .container {
+
+  width: 720px; /* Ширина контейнера */
+  height: 200px;
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  overflow: hidden; /* Скрываем лишний контент */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  font-family: 'arial black';
+  font-size:1.3em;
+}
+
+.container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.container:active {
+  transform: translateY(-5px);
+}
+
+.container img {
+  width: 300px;
+  height: 200px; /* Установите нужную высоту */
+  object-fit: cover; /* Покрытие всей площади */
+}
+
+.container-content {
+  padding: 10px;
+}
+
+.container-title {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.container-description {
+  font-size: 0.9em;
+}
+
+    footer {
+      position: absolute;
+      left: 135px;
+      font-family: 'arial black', sans-serif;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- Site navigation menu -->
+
+<nav class="top-menu">
+  <a class="navbar-logo" href=""><img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png"></a>
+  <ul class="menu-main">
+ <li><a href="index.html"> Home</a>
+ <li><a href="trainers.html">Trainers</a>
+ <li><a href="blog.html">Blog</a>
+ <ul class="submenu">
+       <li><a href="Questions.html">Questions</a></li>
+     <li><a href="Our story.html">Our story</a></li>
+   </ul>
+ <li><a href="Adresses.html">Adresses</a>
+    <li><a href="Workouts.html">Workouts</a>
+<ul class="submenu">
+     <li><a href="Group workouts.html">Group</a></li>
+     <li><a href="Pool workouts.html">Pool</a></li>
+   </ul>
+</ul>
+</nav>
+
+<div class="language-selector">
+    <button class="language-button active" data-lang="en">English</button>
+    <button class="language-button" data-lang="ru">Русский</button>
+  </div>
+
+  <script>
+    const languageButtons = document.querySelectorAll('.language-button');
+    const htmlElement = document.querySelector('html');
+
+    languageButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Удаляем класс 'active' у всех кнопок
+        languageButtons.forEach(b => b.classList.remove('active'));
+
+        // Добавляем класс 'active' к нажатой кнопке
+        button.classList.add('active');
+
+        // Изменяем атрибут 'lang' у элемента 'html'
+        htmlElement.lang = button.dataset.lang;
+
+        // Добавьте сюда логику обновления контента страницы
+        // Например:
+        // updateContent(button.dataset.lang);
+      });
+    });
+
+    // Функция обновления контента (придумайте свою логику)
+    function updateContent(language) {
+      // ...
+    }
+  </script>
+
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Главная4.jpg" alt="Фото 1"> 
+  <div class="container-content">
+    <h3 class="container-title">Fitness</h3>
+    <p class="container-description">Fitness with coach for 25.000 tenge per month!</p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Boxing.jpg" alt="Фото 2"> 
+  <div class="container-content">
+    <h3 class="container-title">Boxing</h3>
+    <p class="container-description">Learn how to boxing with the help of KMS of box! <br> 28.500 tenge per month </br></p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Athletic.jpg" alt="Фото 3"> 
+  <div class="container-content">
+    <h3 class="container-title">Athletics</h3>
+    <p class="container-description">Run faster than wind with us! <br> 12.000 tenge per month </br></p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Ballet.jpg" alt="Фото 4"> 
+  <div class="container-content">
+    <h3 class="container-title">Ballet</h3>
+    <p class="container-description">Age is not limit! <br> If you dreamed to be a ballerina here is your chance! <br> 28.200 tenge per month</p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Blog1.jpeg" alt="Фото 5"> 
+  <div class="container-content">
+    <h3 class="container-title">Stretching</h3>
+    <p class="container-description">Relax your body!<br> 18.200 tenge per month</br></p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\Aerobic.jpg" alt="Фото 6"> 
+  <div class="container-content">
+    <h3 class="container-title">Aerobic</h3>
+    <p class="container-description">26.100 tenge per month!</br></p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\pool1.jpg" alt="Фото 7"> 
+  <div class="container-content">
+    <h3 class="container-title">Group pool fitness</h3>
+    <p class="container-description">For 15.000 tenge per month!</p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\pool2.jpg" alt="Фото 8"> 
+  <div class="container-content">
+    <h3 class="container-title">Pool exercises for babies</h3>
+    <p class="container-description">For 18.500 tenge per month </br></p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\pool3.jpg" alt="Фото 9"> 
+  <div class="container-content">
+    <h3 class="container-title">Pool sport for kids</h3>
+    <p class="container-description">For 12.000 tenge per month! Age 5 - 15 </br></p>
+  </div>
+</div>
+<div class="container">
+  <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\pool4.jpg" alt="Фото 10"> 
+  <div class="container-content">
+    <h3 class="container-title">Pool for elders</h3>
+    <p class="container-description">Age is not limit!<br> 10.200 tenge per month</p>
+  </div>
+</div>
+
+
+
+
+  <footer>
+     <img src="C:\Users\flowe\Desktop\Фото для спорт сайта\AISPORT (1).png">
+  <p>Become stronger with us!</p>
+    <p>Social Media</p>
+    <p>Instagram: @Aisport_kz</p>
+    <p>VK: Aisport_kz group</p>
+  </footer>
+
+</body>
+</html>
